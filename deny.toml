@@ -1,0 +1,45 @@
+# cargo-deny — dependency license check for BioVault (D63; docs/04 and docs/09).
+#
+# BioVault is all rights reserved, so no dependency may carry GPL or AGPL terms.
+# cargo-deny works from an allow-list: any license not listed below fails the check,
+# so GPL/AGPL (and anything else nobody has decided on) is rejected by default.
+#
+# Run from the repository root once the root Cargo.toml exists (D80):
+#     cargo install cargo-deny --locked
+#     cargo deny check licenses
+#
+# Before you allow a new license: check it's compatible with all-rights-reserved
+# distribution, add it below with a one-line reason, and list the dependency in
+# THIRD_PARTY_NOTICES.md.
+
+[graph]
+# The two platforms BioVault ships for: the Windows desktop and the Android phone.
+# Platform-specific dependencies are checked for these targets only.
+targets = [
+    "x86_64-pc-windows-msvc",
+    "aarch64-linux-android",
+]
+
+[licenses]
+# The policy decided in D63: permissive licenses, used with attribution.
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+    "MPL-2.0", # file-level copyleft: changes to an MPL file itself must be shared under MPL; your own files stay yours
+    # Permissive licenses the planned stack pulls in (D81):
+    "Unicode-3.0",         # unicode-ident and the ICU crates (via url → idna, used by Tauri)
+    "CDLA-Permissive-2.0", # webpki-root-certs, via ort-sys's build-time downloader
+]
+confidence-threshold = 0.93
+exceptions = []
+# The allow-list is the policy, not an inventory: unused entries are fine.
+unused-allowed-license = "allow"
+
+[licenses.private]
+# BioVault's own crates have no license on purpose. Give every one of them
+# `publish = false` in its Cargo.toml and this check skips them.
+ignore = true

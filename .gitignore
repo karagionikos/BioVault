@@ -1,0 +1,82 @@
+# BioVault — what never enters this (public) repository.
+# Model weights, signing keys, secrets, app data, and anything exported from your vault
+# (docs/09-testing-and-release.md § Repository hygiene; D63, D75).
+
+# ── Secrets ───────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Signing keys ──────────────────────────────────────────────────────────
+# The Android release keystore lives OUTSIDE the repo, with an offline backup (F25).
+# These patterns are only a safety net. keystore.properties holds the key password.
+*.jks
+*.keystore
+keystore.properties
+key.properties
+*.pfx
+*.p12
+
+# ── Model weights ─────────────────────────────────────────────────────────
+# Fetched or exported locally and verified by checksum, never committed (models/README.md).
+/models/*
+!/models/README.md
+!/models/fetch.*
+!/models/SHA256SUMS
+*.onnx
+*.ort
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.gguf
+
+# ── Your vault data, exports and training data ────────────────────────────
+# They reveal what you read and how you connect it. Keep them out of a public repo.
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+/exports/
+/ml/data/
+/ml/artifacts/
+*.parquet
+links.csv
+suggestion_events.csv
+
+# ── Rust ──────────────────────────────────────────────────────────────────
+target/
+**/*.rs.bk
+
+# ── Tauri ─────────────────────────────────────────────────────────────────
+# gen/android is committed (you edit its Gradle files); its build outputs are
+# covered by the .gitignore that `tauri android init` writes there.
+/app/src-tauri/gen/schemas/
+*.apk
+*.aab
+*.msi
+*-setup.exe
+
+# ── Node / front end ──────────────────────────────────────────────────────
+node_modules/
+/app/dist/
+coverage/
+*.tsbuildinfo
+npm-debug.log*
+
+# ── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Operating systems ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
