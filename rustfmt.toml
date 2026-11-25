@@ -1,0 +1,7 @@
+# rustfmt for the whole Cargo workspace. Stable options only: CI runs `cargo fmt --all --check` on stable.
+# Everything else stays at rustfmt's defaults (100-column lines, 4-space indent).
+
+# LF even when a file arrives with CRLF on Windows.
+newline_style = "Unix"
+# One style for every crate, whatever edition each Cargo.toml declares.
+style_edition = "2024"

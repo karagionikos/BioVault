@@ -1,6 +1,6 @@
 # BioVault — Project Blueprint
 
-**Status:** Blueprint v1.1 · 2026-11-24 · written from a 13-round design interview; v1.1 adds the repo-setup decisions D80–D81
+**Status:** Blueprint v1.1 · 2026-11-24 · written from a 13-round design interview; v1.1 adds the repo-setup decisions D80–D83
 **Owner:** Nikos (karagionikos) · **License:** source-available, all rights reserved (see [ADR-007](decisions/ADR-007-source-available.md))
 
 BioVault is a personal research vault for life-science and health research. It runs as one app on a Windows desktop and an Android phone, works fully offline, syncs the two devices over the home network, and turns the papers you read into an evolving, categorized **personal evidence map**: papers, the findings you took from them, and the typed connections between them.
@@ -23,7 +23,7 @@ BioVault is a personal research vault for life-science and health research. It r
 | 09 | [Testing & release](09-testing-and-release.md) | Test layers, sync simulator, builds, signing, versioning, repo layout |
 | 10 | [Roadmap](10-roadmap.md) | Phases 0–4, milestones M1/M2, hour estimates, open items |
 | 11 | [Risks](11-risks.md) | Risk register with mitigations |
-| — | [Decision log](decision-log.md) | Every decision, numbered D1–D81 (D1–D79 from the interview, D80–D81 from repo setup) |
+| — | [Decision log](decision-log.md) | Every decision, numbered D1–D83 (D1–D79 from the interview, D80–D83 from repo setup) |
 | — | [Decision records](decisions/) | Short ADRs for the ten decisions that shape everything else |
 
 ## The design in one diagram

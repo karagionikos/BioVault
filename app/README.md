@@ -24,6 +24,28 @@ The files that make this folder a Vite + React + TypeScript project (`package.js
 
   Install the checker as a dev dependency (`npm i -D license-checker-rseidelsohn`). `--excludePrivatePackages` skips BioVault's own unlicensed package. List every new dependency in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 
+## Scripts CI runs
+
+CI's `app` job ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) starts as soon as `package.json` exists and runs `npm ci` followed by these scripts, so `package.json` needs all five:
+
+```json
+"scripts": {
+  "typecheck": "tsc -b",
+  "lint": "eslint .",
+  "format:check": "prettier --check .",
+  "test": "vitest run",
+  "licenses": "license-checker-rseidelsohn --production --excludePrivatePackages --onlyAllow \"MIT;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;Zlib;MPL-2.0\""
+}
+```
+
+Lint and format config is already here: [`eslint.config.js`](eslint.config.js), [`.prettierrc.json`](.prettierrc.json), [`.prettierignore`](.prettierignore). Vite's React template now ships oxlint and TypeScript 7. When you scaffold, keep these files, skip oxlint, and install:
+
+```powershell
+npm i -D eslint @eslint/js typescript-eslint eslint-plugin-react-hooks eslint-plugin-react-refresh globals eslint-config-prettier prettier typescript@~6.0
+```
+
+TypeScript stays on `~6.0` because typescript-eslint doesn't support 7.0 yet. Move to 7 once it does (D82). This set was tested on 2026-11-25 with ESLint 10, typescript-eslint 8.74 and Prettier 3.10.
+
 ## Building and shipping
 
 From [09 · Building & installing](../docs/09-testing-and-release.md#building--installing):

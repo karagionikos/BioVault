@@ -1,0 +1,35 @@
+name: Feature or roadmap step
+description: One feature ID or roadmap step from the blueprint, closed by its "done when" criteria.
+title: "F-XX: "
+labels: [enhancement]
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Feature ID or roadmap step
+      description: An F-ID from docs/02-features-and-flows.md, or a step from docs/10-roadmap.md for work without one (e.g. 1.1, 2.1).
+      placeholder: F-04
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      description: The feature's "done when" criteria from docs/02, one checkbox each. The issue closes when every box is ticked.
+      value: "- [ ] "
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: Blueprint references
+      description: The sections and decisions (D-numbers) the work must follow.
+      placeholder: "docs/03-data-model.md § Finding · D41 · D59"
+  - type: checkboxes
+    id: flags
+    attributes:
+      label: Flags
+      options:
+        - label: Touches a human-owned area (sync merge rules, conflict detection, simulator assertions, link-model evaluation, the takeaway rule)
+        - label: Touches sync, so the simulator must pass
+        - label: Adds a dependency (license check + THIRD_PARTY_NOTICES.md row)

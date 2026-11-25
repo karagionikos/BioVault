@@ -18,10 +18,13 @@ Next is **Spike 0**, a throwaway branch that proves the risky parts before any f
 | [`app/`](app/README.md) | The Tauri 2 app: React + TypeScript interface in [`src/`](app/src/README.md), app crate and platform config in [`src-tauri/`](app/src-tauri/README.md) |
 | [`ml/`](ml/README.md) | Python: SPECTER2 export, the reader evaluation set, link-model training |
 | [`models/`](models/README.md) | Model files, **never committed**. Only a fetch script and checksums live in git |
-| [`docs/`](docs/README.md) | The blueprint (00–11), the [decision log](docs/decision-log.md) (D1–D81) and the [ADRs](docs/decisions/) |
+| [`docs/`](docs/README.md) | The blueprint (00–11), the [decision log](docs/decision-log.md) (D1–D83) and the [ADRs](docs/decisions/) |
 | `Cargo.toml` *(arrives with code)* | Cargo workspace root over `core/*` and `app/src-tauri` (D80) |
 | [`deny.toml`](deny.toml) | Rust license check that rejects GPL/AGPL (`cargo deny check licenses`) |
 | [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) | License policy and every third-party component's license |
+| [`AGENTS.md`](AGENTS.md) · [`CLAUDE.md`](CLAUDE.md) | Instructions for AI coding agents, with pointers into the blueprint |
+| [`.github/`](.github/) | CI (format, lint, tests, license checks), issue templates keyed to F-IDs, PR checklist |
+| `.editorconfig` · `rustfmt.toml` · [`.vscode/`](.vscode/) | Editor and format config; Prettier and ESLint config live in `app/` |
 
 ## Rules that protect the project
 
@@ -39,5 +42,7 @@ From the blueprint, for anyone (human or agent) who writes code here:
 Copyright © 2026 Karageorgis Nikos (karagionikos). All rights reserved.
 
 **No license is granted.** The source is public so that it can be read; that doesn't make it open source. Apart from what GitHub's Terms of Service allow on GitHub itself (viewing and forking), you may not copy, modify, distribute or use any part of it without written permission.
+
+**Contributions aren't accepted.** All rights are reserved and there is no contributor agreement, so pull requests from anyone but the owner can't be merged (D83).
 
 Third-party components keep their own licenses: see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -1,0 +1,53 @@
+name: Bug
+description: Behaviour that breaks a feature's "done when" criteria or a blueprint rule.
+title: "Bug (F-XX): "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "**This repository is public.** Leave out vault content, exports, API keys and anything personal."
+  - type: input
+    id: id
+    attributes:
+      label: Feature ID
+      description: The F-ID from docs/02-features-and-flows.md whose behaviour is wrong, if you know it.
+      placeholder: F-04
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      multiple: true
+      options:
+        - Windows desktop
+        - Android phone
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version or commit
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: Quote the "done when" criterion or rule this breaks.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: checkboxes
+    id: data
+    attributes:
+      label: Data at risk
+      options:
+        - label: Edits were lost or duplicated (for sync bugs, add the simulator seed if you have one)
