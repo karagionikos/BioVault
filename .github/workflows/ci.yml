@@ -1,0 +1,80 @@
+# CI: the merge gates from docs/09 (test layers) and docs/10 (guardrails, D77).
+# The Rust and app jobs switch themselves on when the root Cargo.toml and app/package.json
+# arrive (D81: no code yet). Until then they show as skipped, which counts as passing.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      rust: ${{ steps.files.outputs.rust }}
+      app: ${{ steps.files.outputs.app }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: files
+        run: |
+          echo "rust=$([ -f Cargo.toml ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          echo "app=$([ -f app/package.json ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+  rust:
+    needs: detect
+    if: needs.detect.outputs.rust == 'true'
+    # Windows is the desktop target, and it needs none of Tauri's Linux system libraries.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all --check
+      # Tauri's generate_context! needs frontendDist to exist; clippy and tests don't need a real UI build.
+      - run: mkdir -p app/dist
+      - run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      # Includes the sync simulator (core/sync-sim), mandatory for any sync change (D69).
+      - run: cargo test --workspace --locked
+
+  rust-licenses:
+    needs: detect
+    if: needs.detect.outputs.rust == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # deny.toml: allow-list only, so GPL/AGPL fail (D63).
+      - uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          command: check licenses
+
+  app:
+    needs: detect
+    if: needs.detect.outputs.app == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      # Script contract: app/README.md § Scripts CI runs.
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run licenses

@@ -1,0 +1,6 @@
+# Prettier formats the interface code only.
+# Markdown keeps the blueprint's own style; src-tauri holds Rust, Tauri-written JSON and generated Android files.
+dist
+coverage
+src-tauri
+*.md

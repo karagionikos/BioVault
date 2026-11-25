@@ -1,6 +1,6 @@
-# Line endings: stored as LF in the repository, checked out natively.
-# Matters here because you develop on Windows and Android builds run Unix scripts.
-* text=auto
+# Line endings: LF in the repository and in every checkout, Windows included (D82).
+# rustfmt, Prettier and .editorconfig all write LF, and Android builds run Unix scripts.
+* text=auto eol=lf
 
 # Scripts that must keep one line ending wherever they're checked out
 *.sh      text eol=lf

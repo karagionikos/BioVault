@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "rust-lang.rust-analyzer",
+    "tamasfe.even-better-toml",
+    "tauri-apps.tauri-vscode",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "vitest.explorer",
+    "ms-python.python",
+    "bierner.markdown-mermaid",
+    "github.vscode-github-actions"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "[rust]": { "editor.defaultFormatter": "rust-lang.rust-analyzer" },
+  "[typescript][typescriptreact][javascript][json][jsonc][css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Prettier formats only where a Prettier config exists (app/), so the blueprint's Markdown keeps its style.
+  "prettier.requireConfig": true,
+  "eslint.workingDirectories": ["app"],
+  // The same lints CI runs.
+  "rust-analyzer.check.command": "clippy"
+}

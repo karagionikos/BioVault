@@ -1,0 +1,22 @@
+# Basic file format for every editor (VS Code needs the EditorConfig extension).
+# Code formatting itself belongs to rustfmt (Rust) and Prettier (app/).
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.{rs,toml,py,kt,kts,gradle}]
+indent_size = 4
+
+# Two trailing spaces are a Markdown line break.
+[*.md]
+trim_trailing_whitespace = false
+
+# Windows scripts keep CRLF (.gitattributes).
+[*.{ps1,bat,cmd}]
+end_of_line = crlf

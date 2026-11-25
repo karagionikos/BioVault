@@ -52,7 +52,8 @@ Note: crates.io's newest `tauri` is a 3.0 alpha. BioVault targets **Tauri 2** (A
 
 | Tool | License |
 |---|---|
-| TypeScript 7 · Vite 8 · Vitest 5 · Testing Library (`@testing-library/react` 16) · `@tauri-apps/cli` 2 | Apache-2.0 · MIT · MIT · MIT · Apache-2.0 OR MIT |
+| TypeScript 6 (`~6.0` until typescript-eslint supports 7, D82) · Vite 8 · Vitest 5 · Testing Library (`@testing-library/react` 16) · `@tauri-apps/cli` 2 | Apache-2.0 · MIT · MIT · MIT · Apache-2.0 OR MIT |
 | `proptest` 1 (sync simulator) | MIT OR Apache-2.0 |
+| ESLint 10 · `@eslint/js` · typescript-eslint 8 · `eslint-plugin-react-hooks` · `eslint-plugin-react-refresh` · `globals` · `eslint-config-prettier` · Prettier 3 (lint and format) | MIT (all) |
 | `cargo-deny` · `license-checker-rseidelsohn` (license checks) | MIT OR Apache-2.0 · BSD-3-Clause |
 | Python in `ml/`: PyTorch · transformers · adapters · onnx · onnxruntime · scikit-learn · skl2onnx · onnxmltools | BSD-style (PyPI lists several permissive licenses) · Apache-2.0 · Apache-2.0 · Apache-2.0 · MIT · BSD-3-Clause · Apache-2.0 · Apache-2.0 |

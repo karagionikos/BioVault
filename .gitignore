@@ -75,6 +75,12 @@ venv/
 .mypy_cache/
 .ruff_cache/
 
+# ── Editor ────────────────────────────────────────────────────────────────
+# Shared VS Code settings are committed; personal files (launch configs, local paths) stay out.
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
 # ── Operating systems ─────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
