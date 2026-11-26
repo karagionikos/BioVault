@@ -2,7 +2,6 @@
   "name": "biovault",
   "private": true,
   "license": "UNLICENSED",
-  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
