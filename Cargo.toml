@@ -1,0 +1,5 @@
+# Cargo workspace root (D80): one Cargo.lock and one target/ for every crate.
+# Spike 0 holds only the app crate; the core/ crates join in P1 step 1.1.
+[workspace]
+members = ["app/src-tauri"]
+resolver = "3"

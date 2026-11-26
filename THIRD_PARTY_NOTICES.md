@@ -16,12 +16,13 @@ BioVault's own code is all rights reserved (see [README](README.md)). Third-part
 
 ## Included components
 
-**None yet.** The repository holds no code, no dependencies and no models.
-
-When you add a dependency or a model that ships in the app, add a row here:
+Spike 0 (throwaway branch). When you add a dependency or a model that ships in the app, add a row here:
 
 | Component | Version | License | Used for | Attribution / notice |
 |---|---|---|---|---|
+| Tauri (`tauri`, `tauri-build`), incl. its placeholder app icons | 2.12.7 · 2.7.6 | Apache-2.0 OR MIT | App shell | Tauri Programme within The Commons Conservancy |
+| `@tauri-apps/api` | 2.12.5 | Apache-2.0 OR MIT | Interface ↔ Rust calls | Tauri Programme within The Commons Conservancy |
+| React + react-dom | 19.3.1 | MIT | Interface | Meta Platforms, Inc. and affiliates |
 
 ## Planned components (named in the blueprint; not yet included)
 
@@ -31,10 +32,8 @@ Licenses as published on crates.io, npm and Hugging Face on 2026-11-24. Re-check
 
 | Component | Ecosystem | License | Role | Blueprint |
 |---|---|---|---|---|
-| Tauri 2 (`tauri` 2.12, `@tauri-apps/api` 2.12) | Rust · npm | Apache-2.0 OR MIT | App shell | [04](docs/04-architecture.md), [ADR-003](docs/decisions/ADR-003-tauri-rust-react.md) |
 | `tauri-plugin-opener` · `@tauri-apps/plugin-opener` | Rust · npm | Apache-2.0 OR MIT | Open links in the system browser | [04](docs/04-architecture.md#platform-specifics) |
 | `tauri-plugin-barcode-scanner` · `@tauri-apps/plugin-barcode-scanner` | Rust · npm | Apache-2.0 OR MIT | QR pairing (phone scans) | [05](docs/05-sync-spec.md#discovery--pairing) |
-| React + react-dom 19 | npm | MIT | Interface | [04](docs/04-architecture.md) |
 | d3-force 3 | npm | **ISC** | Map layout | [07](docs/07-map-and-interface.md#renderer-d72) |
 | PixiJS (`pixi.js` 8) | npm | MIT | Map drawing | [07](docs/07-map-and-interface.md#renderer-d72) |
 | perfect-freehand 1 | npm | MIT | Sketch strokes (P3) | [07](docs/07-map-and-interface.md#sketch-canvas-p3-d67-d75) |
@@ -53,6 +52,7 @@ Note: crates.io's newest `tauri` is a 3.0 alpha. BioVault targets **Tauri 2** (A
 | Tool | License |
 |---|---|
 | TypeScript 6 (`~6.0` until typescript-eslint supports 7, D82) · Vite 8 · Vitest 5 · Testing Library (`@testing-library/react` 16) · `@tauri-apps/cli` 2 | Apache-2.0 · MIT · MIT · MIT · Apache-2.0 OR MIT |
+| `@vitejs/plugin-react` 6 · `@types/react` · `@types/react-dom` · `@types/node` | MIT (all) |
 | `proptest` 1 (sync simulator) | MIT OR Apache-2.0 |
 | ESLint 10 · `@eslint/js` · typescript-eslint 8 · `eslint-plugin-react-hooks` · `eslint-plugin-react-refresh` · `globals` · `eslint-config-prettier` · Prettier 3 (lint and format) | MIT (all) |
 | `cargo-deny` · `license-checker-rseidelsohn` (license checks) | MIT OR Apache-2.0 · BSD-3-Clause |
