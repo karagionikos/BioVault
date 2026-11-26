@@ -14,7 +14,7 @@ flowchart LR
 
 ## Phase 0 — Spike 0 (~15–30 h)
 Throwaway; prove the risky parts ([04](04-architecture.md#spike-0--prove-the-risky-parts-first-d68)).
-- [ ] Tauri + React app runs on Windows and installs on Android
+- [x] Tauri + React app runs on Windows and installs on Android (2026-11-26: Windows 10 release build + NSIS installer; Android 17 phone, arm64 debug APK)
 - [ ] SPECTER2 (8-bit ONNX) fingerprints one abstract on the phone in ≤ 2 s; engine chosen (ort / tract); model size noted
 - [ ] Phone discovers desktop on the LAN (Ethernet ↔ Wi-Fi) and exchanges an encrypted message
 - [ ] PixiJS: 1,000 dots / 3,000 lines smooth in the Android WebView

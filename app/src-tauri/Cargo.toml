@@ -1,0 +1,18 @@
+[package]
+name = "biovault"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+publish = false
+
+[lib]
+# The _lib suffix keeps the library's name apart from the binary's (a Cargo limitation on Windows).
+name = "biovault_lib"
+# staticlib/cdylib for the Android build, rlib for main.rs.
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.7.6", features = [] }
+
+[dependencies]
+tauri = { version = "2.12.7", features = [] }
