@@ -85,7 +85,7 @@ flowchart TB
 | Concern | Windows | Android |
 |---|---|---|
 | App data location | Tauri app data dir | App-private storage |
-| Network discovery | mDNS works directly | Needs a `WifiManager.MulticastLock` — a small Kotlin Tauri plugin (my call; verify in Spike 0) |
+| Network discovery | mDNS works directly; the firewall must allow the app on the network's profile (the owner's Ethernet is "Public") | Needs the runtime permission `ACCESS_LOCAL_NETWORK` (Android 17, target SDK 37) and a `WifiManager.MulticastLock`; Spike 0 handled both in `MainActivity.kt`, no plugin (D85) |
 | QR | Desktop **shows** the code | Phone **scans** with Tauri's official barcode-scanner plugin |
 | Opening links | System browser (Tauri opener plugin) | System browser |
 | Screenshots in | File picker / paste | Share sheet / file picker |

@@ -19,10 +19,10 @@ The Tauri application crate: the binary that ships on Windows and Android. It's 
 |---|---|---|
 | QR scanning on the phone | Tauri's official barcode-scanner plugin | [05](../../docs/05-sync-spec.md#discovery--pairing) |
 | Opening links | Tauri opener plugin → system browser | [04](../../docs/04-architecture.md#platform-specifics) |
-| mDNS discovery on Android | Hold a `WifiManager.MulticastLock`, likely via a small Kotlin plugin | [04](../../docs/04-architecture.md#platform-specifics) |
+| mDNS discovery on Android | Done in Spike 0 without a plugin: `MainActivity.kt` requests `ACCESS_LOCAL_NETWORK` and holds a `WifiManager.MulticastLock` (D85) | [04](../../docs/04-architecture.md#platform-specifics) |
 | Receiving URLs shared from other apps | Android share-target intent, likely via a small Kotlin plugin | [02 · F-20](../../docs/02-features-and-flows.md#phase-2--android--sync-milestone-m2-one-vault-two-devices) |
 
-Where those Kotlin plugins live is still open. Decide when Spike 0 needs the first one.
+Spike 0 needed none. Where Kotlin plugins live is still open: decide when the share target (F-20) needs the first one.
 
 ## Never commit
 

@@ -16,7 +16,7 @@ flowchart LR
 Throwaway; prove the risky parts ([04](04-architecture.md#spike-0--prove-the-risky-parts-first-d68)).
 - [x] Tauri + React app runs on Windows and installs on Android (2026-11-26: Windows 10 release build + NSIS installer; Android 17 phone, arm64 debug APK)
 - [x] SPECTER2 (8-bit ONNX) fingerprints one abstract on the phone in ≤ 2 s; engine chosen (ort / tract); model size noted (2026-11-28: 0.29 s for a 331-token abstract on the Snapdragon 7s Gen 3 phone; engine `ort`; 132.6 MB per variant; D84)
-- [ ] Phone discovers desktop on the LAN (Ethernet ↔ Wi-Fi) and exchanges an encrypted message
+- [x] Phone discovers desktop on the LAN (Ethernet ↔ Wi-Fi) and exchanges an encrypted message (2026-11-28: mDNS via `mdns-sd`, Noise XX via `snow` over TCP; both directions, same handshake code on both screens; Wi-Fi ↔ Wi-Fi takes the same path but is untested; D85)
 - [ ] PixiJS: 1,000 dots / 3,000 lines smooth in the Android WebView
 - **Exit:** all pass → P1. Interface fails badly → Flutter for the UI, Rust core unchanged.
 
