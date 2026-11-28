@@ -54,7 +54,7 @@ For each known device: the highest HLC seen from it. Comparing vectors tells eac
 
 ## Discovery & pairing
 
-**Discovery:** each running app advertises an mDNS/DNS-SD service `_biovault._tcp.local` with its device id and port. On Android the app holds a multicast lock while discovering. **Fallback:** enter `ip:port` manually (for routers that block multicast) (F19).
+**Discovery:** each running app advertises an mDNS/DNS-SD service `_biovault._tcp.local` with its device id and port. On Android the app first needs the runtime permission `ACCESS_LOCAL_NETWORK` ("Nearby devices"): from Android 17 (target SDK 37) every LAN packet, mDNS and TCP alike, is blocked without it. Ask for it before the first discovery; if it's denied, sync can't run, so say so and show where to grant it. While discovering, the app also holds a multicast lock (D85). **Fallback:** enter `ip:port` manually (for routers that block multicast) (F19).
 
 **Pairing (once per device pair):**
 1. Desktop → Settings → Devices → **Pair a phone**: generates a one-time pairing token and shows a QR containing `{device_id, name, address:port, public_key_fingerprint, token}`.

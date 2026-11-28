@@ -22,3 +22,7 @@ ort = "=2.0.0-rc.15"
 # Pure-Rust regex instead of the default C libraries (onig, esaxx), so it cross-compiles for Android.
 tokenizers = { version = "0.22.2", default-features = false, features = ["fancy-regex"] }
 serde_json = "1"
+# No logger is installed, so mdns-sd's logging (and its unused async API) stay off.
+mdns-sd = { version = "0.22", default-features = false }
+# Without the "std" feature, which would also compile ring (C code) that the default resolver never uses.
+snow = { version = "0.10", default-features = false, features = ["default-resolver-crypto"] }

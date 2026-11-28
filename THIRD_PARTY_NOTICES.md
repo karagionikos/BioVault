@@ -26,6 +26,8 @@ Spike 0 (throwaway branch). When you add a dependency or a model that ships in t
 | `ort` + ONNX Runtime (prebuilt static library, downloaded at build time by `ort-sys`) | 2.0.0-rc.15 · 1.31.0 | ort: MIT OR Apache-2.0 · ONNX Runtime: MIT | Model inference (Spike 0 pick) | pyke.io (ort); Microsoft Corporation (ONNX Runtime). ONNX Runtime bundles further components (protobuf, abseil, re2, …) listed in its `ThirdPartyNotices.txt`: ship that file with the app |
 | `tokenizers` | 0.22.2 | Apache-2.0 | WordPiece tokenization | Hugging Face, Inc. |
 | `serde_json` | 1.0.154 | MIT OR Apache-2.0 | Reading the sample-abstract fixture | Erick Tryzelaar, David Tolnay |
+| `mdns-sd` | 0.22.0 | Apache-2.0 OR MIT | LAN discovery (`_biovault._tcp.local`) | Han Xu |
+| `snow` (Noise protocol) with its default pure-Rust crypto: `curve25519-dalek`, `chacha20poly1305`, `blake2`, … | 0.10.0 · curve25519-dalek 4.1.3 | snow and the RustCrypto crates: Apache-2.0 OR MIT · **curve25519-dalek: BSD-3-Clause** | Encrypted sessions between devices (Spike 0 pick) | Jake McGinty, trevp (snow); isis agora lovecruft, Henry de Valence (curve25519-dalek): BSD-3-Clause requires shipping its copyright notice and license text with the app |
 | **SPECTER2**: `allenai/specter2_base` + adapters `allenai/specter2` (proximity), `allenai/specter2_adhoc_query`, exported to int8 ONNX | — | **Apache-2.0**: ship its license text and credit AllenAI | Fingerprints | Allen Institute for AI (AI2) |
 
 ## Planned components (named in the blueprint; not yet included)
@@ -42,7 +44,6 @@ Licenses as published on crates.io, npm and Hugging Face on 2026-11-24. Re-check
 | PixiJS (`pixi.js` 8) | npm | MIT | Map drawing | [07](docs/07-map-and-interface.md#renderer-d72) |
 | perfect-freehand 1 | npm | MIT | Sketch strokes (P3) | [07](docs/07-map-and-interface.md#sketch-canvas-p3-d67-d75) |
 | SQLite, bundled (e.g. via `rusqlite`) | Rust | SQLite: public domain · crate: MIT | Database + FTS5 | [03](docs/03-data-model.md) |
-| `snow` 0.10 (Noise) **or** `rustls` 0.23 (TLS) | Rust | snow: Apache-2.0 OR MIT · rustls: Apache-2.0 OR ISC OR MIT | Encrypted sync sessions | [05](docs/05-sync-spec.md#discovery--pairing) |
 | `ts-rs` 12 **or** `specta` 2 (rc) | Rust | MIT | TypeScript types generated from Rust | [04](docs/04-architecture.md#core--interface-boundary) |
 | `uuid` 1 (feature `v7`) | Rust | Apache-2.0 OR MIT | UUIDv7 identifiers | [03](docs/03-data-model.md) |
 
