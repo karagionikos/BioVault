@@ -10,7 +10,7 @@
 | Database | **SQLite** (bundled) + built-in full-text search (FTS5) | Embedded, reliable, identical on both devices |
 | Meaning search | In-memory vector comparison in Rust | ~1,000–3,000 fingerprints: microseconds; no vector DB needed |
 | Embeddings | **SPECTER2** as ONNX, 8-bit, run in the Rust core | Paper-specialized; English; Apache-2.0 (D61) |
-| Inference engine | ONNX Runtime via `ort`, or pure-Rust `tract` | Chosen in Spike 0 by what builds cleanly for Android |
+| Inference engine | **ONNX Runtime via `ort`** | Builds for Windows and Android from prebuilt libraries; 0.29 s per abstract on the phone. Pure-Rust `tract` was 33 s on the int8 model (D84) |
 | Map | **d3-force** (layout) + **PixiJS** (drawing) | Full visual control; MIT licenses (D72) |
 | Sketching (P3) | Own canvas + **perfect-freehand** | Light, MIT, strokes as point lists (D75) |
 | Sync | **Own engine**: op log + hybrid logical clocks | Matches the merge rules exactly (D69) |
