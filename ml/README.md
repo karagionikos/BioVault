@@ -40,4 +40,12 @@ ml/
 └─ artifacts/   # exported models before they move to models/ (git-ignored)
 ```
 
-The Python environment and tooling (venv, uv, …) are your call at Spike 0. Python libraries run only on your desktop and don't ship. Anything whose code or weights end up in the app must pass the license policy in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
+Spike 0 used a plain venv with pinned versions (the export's checksums depend on them):
+
+```powershell
+py -3.14 -m venv ml/.venv
+ml/.venv/Scripts/python -m pip install -r ml/requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+ml/.venv/Scripts/python ml/src/export_specter2.py
+```
+
+The export downloads about 450 MB from Hugging Face and needs about 3 GB of disk while it runs. Python libraries run only on your desktop and don't ship. Anything whose code or weights end up in the app must pass the license policy in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).

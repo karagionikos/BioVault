@@ -23,6 +23,10 @@ Spike 0 (throwaway branch). When you add a dependency or a model that ships in t
 | Tauri (`tauri`, `tauri-build`), incl. its placeholder app icons | 2.12.7 · 2.7.6 | Apache-2.0 OR MIT | App shell | Tauri Programme within The Commons Conservancy |
 | `@tauri-apps/api` | 2.12.5 | Apache-2.0 OR MIT | Interface ↔ Rust calls | Tauri Programme within The Commons Conservancy |
 | React + react-dom | 19.3.1 | MIT | Interface | Meta Platforms, Inc. and affiliates |
+| `ort` + ONNX Runtime (prebuilt static library, downloaded at build time by `ort-sys`) | 2.0.0-rc.15 · 1.31.0 | ort: MIT OR Apache-2.0 · ONNX Runtime: MIT | Model inference (Spike 0 pick) | pyke.io (ort); Microsoft Corporation (ONNX Runtime). ONNX Runtime bundles further components (protobuf, abseil, re2, …) listed in its `ThirdPartyNotices.txt`: ship that file with the app |
+| `tokenizers` | 0.22.2 | Apache-2.0 | WordPiece tokenization | Hugging Face, Inc. |
+| `serde_json` | 1.0.154 | MIT OR Apache-2.0 | Reading the sample-abstract fixture | Erick Tryzelaar, David Tolnay |
+| **SPECTER2**: `allenai/specter2_base` + adapters `allenai/specter2` (proximity), `allenai/specter2_adhoc_query`, exported to int8 ONNX | — | **Apache-2.0**: ship its license text and credit AllenAI | Fingerprints | Allen Institute for AI (AI2) |
 
 ## Planned components (named in the blueprint; not yet included)
 
@@ -38,9 +42,6 @@ Licenses as published on crates.io, npm and Hugging Face on 2026-11-24. Re-check
 | PixiJS (`pixi.js` 8) | npm | MIT | Map drawing | [07](docs/07-map-and-interface.md#renderer-d72) |
 | perfect-freehand 1 | npm | MIT | Sketch strokes (P3) | [07](docs/07-map-and-interface.md#sketch-canvas-p3-d67-d75) |
 | SQLite, bundled (e.g. via `rusqlite`) | Rust | SQLite: public domain · crate: MIT | Database + FTS5 | [03](docs/03-data-model.md) |
-| **SPECTER2**: `allenai/specter2_base` + adapters `allenai/specter2` (proximity), `allenai/specter2_adhoc_query` | Model | **Apache-2.0**: ship its license text and credit AllenAI | Fingerprints | [08](docs/08-ml.md), [ADR-004](docs/decisions/ADR-004-ml-approach.md) |
-| `ort` 2.0 (rc) + ONNX Runtime, **or** `tract-onnx` 0.23 (Spike 0 picks one) | Rust (+ native library for ort) | ort: MIT OR Apache-2.0 · ONNX Runtime: MIT · tract: MIT OR Apache-2.0 | Model inference | [04](docs/04-architecture.md) |
-| `tokenizers` 0.23 | Rust | Apache-2.0 | WordPiece tokenization | [08](docs/08-ml.md) |
 | `snow` 0.10 (Noise) **or** `rustls` 0.23 (TLS) | Rust | snow: Apache-2.0 OR MIT · rustls: Apache-2.0 OR ISC OR MIT | Encrypted sync sessions | [05](docs/05-sync-spec.md#discovery--pairing) |
 | `ts-rs` 12 **or** `specta` 2 (rc) | Rust | MIT | TypeScript types generated from Rust | [04](docs/04-architecture.md#core--interface-boundary) |
 | `uuid` 1 (feature `v7`) | Rust | Apache-2.0 OR MIT | UUIDv7 identifiers | [03](docs/03-data-model.md) |

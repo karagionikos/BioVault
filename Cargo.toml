@@ -3,3 +3,10 @@
 [workspace]
 members = ["app/src-tauri"]
 resolver = "3"
+
+# Spike 0: debug builds optimize their dependencies, so the debug APK (the only one installable
+# before the signing key exists) times like a release build. D84's phone timings were measured
+# this way; dropping it (ONNX Runtime itself comes precompiled) needs a new phone measurement.
+[profile.dev.package."*"]
+opt-level = 3
+debug = false # keeps target/ small; dependency debug info isn't needed here

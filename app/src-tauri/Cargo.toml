@@ -2,17 +2,23 @@
 name = "biovault"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.90"
+rust-version = "1.92"
 publish = false
 
 [lib]
 # The _lib suffix keeps the library's name apart from the binary's (a Cargo limitation on Windows).
 name = "biovault_lib"
-# staticlib/cdylib for the Android build, rlib for main.rs.
-crate-type = ["staticlib", "cdylib", "rlib"]
+# cdylib for the Android build, rlib for main.rs. (Tauri's template adds staticlib for iOS,
+# which BioVault doesn't target; on Windows it bundled every dependency into one huge .lib.)
+crate-type = ["cdylib", "rlib"]
 
 [build-dependencies]
 tauri-build = { version = "2.7.6", features = [] }
 
 [dependencies]
 tauri = { version = "2.12.7", features = [] }
+# Exact pin: ort's release candidates break their API between versions (rc.13 → rc.15 did).
+ort = "=2.0.0-rc.15"
+# Pure-Rust regex instead of the default C libraries (onig, esaxx), so it cross-compiles for Android.
+tokenizers = { version = "0.22.2", default-features = false, features = ["fancy-regex"] }
+serde_json = "1"
